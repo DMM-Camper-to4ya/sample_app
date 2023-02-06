@@ -6,14 +6,23 @@ class ListsController < ApplicationController
 
   #以下を追加
   def create
+  list=List.new(list_params)
+  list.save
 
  list=List.new(list_params)
   #3.データをデータベースに保存するためのsaveメソッド実行
  list.save
  #トップ画面へリダイレクト
-  redirect_to'/top'
- end
+  redirect_to list_path(list.id)
+  end
 
+def index
+@lists=List.all
+end
+
+def show
+ @list=List.find(params[:id])
+end
 
  private
  #ストロングパラメータ
