@@ -10,15 +10,16 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list.id)
     else
-      render :new
-    end  end
+      render:index
+    end
+  end
 
  list=List.new(list_params)
   #3.データをデータベースに保存するためのsaveメソッド実行
  list.save
  #トップ画面へリダイレクト
  redirect_to list_path(list.id)
-end
+ end
 
 def index
 @lists=List.all
@@ -49,3 +50,4 @@ end
  def list_params
    params.require(:list).permit(:title,:body,:image)
  end
+
