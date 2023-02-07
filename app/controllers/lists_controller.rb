@@ -14,7 +14,7 @@ class ListsController < ApplicationController
     end
   end
 
- list=List.new(list_params)
+   list=List.new(list_params)
   #3.データをデータベースに保存するためのsaveメソッド実行
  list.save
  #トップ画面へリダイレクト
